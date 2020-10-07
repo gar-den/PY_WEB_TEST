@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bookmark Delete</title>
+    <link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@300&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Gothic A1', sans-serif;
+
+            text-align: center;
+        }
+        body {
+            width: 400px;
+
+            border: 3px solid darkgrey;
+            margin: 50px auto;
+        }
+        .content {
+            width: 100%;
+        }
+        #delete {
+            width: 100px;
+            margin: 50px auto;
+        }
+        img {
+            width: 100%;
+        }
+        button {
+            width: 300px;
+            font-size: 16px;
+            border-radius: 15px;
+            background-color: #5586EB;
+            color: white;
+
+            margin-bottom: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <form method="POST" action=""> {% csrf_token %}
+            <div id="delete">
+                <img src="https://drive.google.com/uc?id=10bYKDLnKfEnnKN6WO7hSMeuXKd4G73pG" alt="delete">
+            </div>
+            <p id="title"> Are you sure you want to delete? </p>
+
+            <button type="submit">YES</button>
+    </form>
+    </div>
+
+</body>
+</html>
+

@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+        {% load staticfiles %}
+
+        <title>Hello, world!</title>
+
+        <style>
+            * {
+                text-align: center;
+                color: grey;
+            }
+            .container-fluid {
+                position: absolute;
+                top: 10%;
+            }
+            a {
+                color: white;
+                text-decoration: none;
+            }
+            a:hover {
+                color: coral;
+                text-decoration: none;
+            }
+            .auth1 .col-md-6 {
+                font-size: 64px;
+            }
+            .userID {
+                color: firebrick;
+            }
+            .auth1 .col-md-3 {
+                font-size: 32px;
+                font-weight: bold;
+            }
+            .auth1 .col-md-3:hover {
+                color: coral;
+            }
+            #introduce {
+                margin-top: 10px;
+            }
+            #top {
+                position: relative;
+                top: -10px;
+            }
+            #name {
+                font-weight: bold;
+                font-size: 25px;
+            }
+            .menu {
+                font-size: 32px;
+                font-weight: bold;
+            }
+            .menu .col-md-4:hover {
+                color: coral;
+            }
+            .menu .col-md-3:hover {
+                color: coral;
+            }
+            .test {
+                color: black;
+            }
+
+        </style>
+    </head>
+    <body>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+        <video controls width="100%" autoplay muted loop>
+           <source src="{% static 'video/output.mp4' %}">
+       </video>
+
+        <div class="container-fluid">
+            <div class="auths">
+                {% if user.is_active %}
+                <div class="row auth1">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6">Hello, <span class="userID">{{ user.get_username }}</span></div>
+                    <div class="col-md-3"></div>
+
+                    <br>
+
+                    <div class="col-md-3"></div>
+                    <div class="col-md-3"><a href="{% url 'logout' %}">LOG OUT</a></div>
+                    <div class="col-md-3"><a href="{% url 'password_change' %}">PW CHANGE</a></div>
+                    <div class="col-md-3"></div>
+                </div>
+
+                {% else %}
+
+                <div class="row auth1">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6">Hello, <span class="userID">Anonymous</span></div>
+                    <div class="col-md-3"></div>
+
+                    <br>
+
+                    <div class="col-md-3"></div>
+                    <div class="col-md-3"><a href="{% url 'login' %}">SIGN IN</a></div>
+                    <div class="col-md-3"><a href="{% url 'register' %}">SIGN UP</a></div>
+                    <div class="col-md-3"></div>
+                </div>
+
+                {% endif %}
+
+            </div>
+
+            <div class="row" id="introduce">
+                <div class="col-md-3"></div>
+                <div class="col-md-3">DJANGO FRAMEWORK</div>
+                <div class="col-md-3" id="top">made by <span id="name">Garden</span> & DLAB</div>
+                <div class="col-md-3"></div>
+            </div>
+
+            <br><br>
+
+            <div class="row menu">
+                <div class="col-md-3"><a href="{% url 'admin:index' %}">ADMIN</a></div>
+                <div class="col-md-3"><a href="{% url 'django_des' %}">DJANGO</a></div>
+                <div class="col-md-3"><a href="{% url 'bookmark_index' %}">BOOKMARK</a></div>
+                <div class="col-md-3"><a href="{% url 'blog_index' %}">BLOG</a></div>
+            </div>
+            <br>
+            <div class="row menu">
+                <div class="col-md-4"></div>
+                <div class="col-md-4"><a href="{% url 'kakao_map' %}">MAP</a></div>
+                <div class="col-md-4"></div>
+            </div>
+
+
+        </div>
+
+
+    </body>
+</html>

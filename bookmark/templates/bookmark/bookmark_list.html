@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>DJANGO BOOKMARK INDEX PAGE</title>
+    <style>
+        * {
+            font-family: 'Nanum Gothic', sans-serif;
+            text-align: center;
+        }
+        body {
+            width: 100%;
+        }
+        span {
+            font-size: 64px;
+            color: firebrick;
+        }
+        ul {
+            display: inline-block;
+            list-style: none;
+        }
+        li {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        a {
+            text-decoration: none;
+            color: darkslategray;
+            padding: 10px 20px;
+        }
+        a:hover {
+            background-color: dimgray;
+            color: darkkhaki;
+        }
+
+        #create {
+            border: 1px solid #008299;
+            display: inline-block;
+            margin: auto 0px;
+
+            color: #008299;
+        }
+
+        #create:hover {
+            border: 3px solid #008299;
+            background-color: #FF7D64;
+        }
+    </style>
+</head>
+<body>
+<div id="content">
+    <h1><span>최</span>고로 <span>애</span>정하는 <span>유</span>튜브</h1>
+
+    <a id="create" href="{% url 'bookmark_create' %}">CREATE</a>
+
+    <br><br>
+
+    <ul>
+
+        {% for bookmark in object_list %}
+
+        <li>
+            <a href= "{% url 'detail' bookmark.id %}" > {{ bookmark }} </a>
+        </li>
+
+        {% endfor %}
+
+    </ul>
+</div>
+</body>
+</html>

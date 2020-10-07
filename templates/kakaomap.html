@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MAP TEST</title>
+
+</head>
+<body>
+    <div id="map" style="width:500px; height:400px;"></div>
+    <p>
+        <button onclick="setCenter()">setCenter()</button>
+        <button onclick="panTo()">panTo()</button>
+    </p>
+    <p id="result"></p>
+
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=118bd395fbc0cd23c86b0b426b54fe6f"></script>
+    <script>
+        var container = document.getElementById("map");
+        var options = {
+            center: new kakao.maps.LatLng(37.579617,126.9748523),
+            level: 3
+        };
+
+        var map = new kakao.maps.Map(container, options);
+
+        function setCenter() {
+            var moveLatLon = new kakao.maps.LatLng(37.579617,126.9748523);
+
+            map.setCenter(moveLatLon);
+        }
+
+        function panTo() {
+            var moveLatLon = new kakao.maps.LatLng(37.578813, 126.976735);
+
+            map.panTo(moveLatLon);
+        }
+
+        kakao.maps.event.addListener(map, 'click', function(mouseEvent){
+            var latlng = mouseEvent.latLng;
+
+            var message = '클릭한 위도: ' + latlng.getLat() + ', 경도: ' + latlng.getLng();
+
+            var resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = message;
+        });
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic|Pattaya&display=swap" rel="stylesheet">
+    <title>BLOG DETAIL PAGE</title>
+    <script>
+        (
+            function() { // DON'T EDIT BELOW THIS LINE
+                var d = document, s = d.createElement('script');
+                s.src = 'https://garden-lee.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+            }
+        )
+        ();
+    </script>
+    <style>
+        * {
+            font-family: 'Pattaya', sans-serif;
+            align-content: center;
+        }
+
+        #title {
+            font-size: 64px;
+            font-weight: bold;
+
+            text-align: center;
+        }
+
+        #content {
+            width: 800px;
+
+            border: 3px solid #BDBDBD;
+
+            margin-left: auto;
+            margin-right: auto;
+
+            padding: 20px;
+        }
+        #b {
+            width: 500px;
+            margin: 0px auto;
+        }
+        .button_a {
+            display: inline-block;
+            width: 200px;
+            margin: 20px;
+        }
+
+        .button {
+            color: white;
+            background-color: #555555;
+
+            padding: 10px;
+            width: 100%;
+
+            font-size: 16px;
+
+            border-radius: 10px;
+        }
+        #imgdiv {
+            width: 800px;
+            text-align: center;
+
+            margin: 20px;
+        }
+
+        img {
+            width: 600px;
+            height: auto;
+        }
+
+        .des {
+            color: firebrick;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div id="content">
+        <h1 id="title">{{ object.title }}</h1>
+
+        <div id="b">
+            <a href="{% url 'blog_update' post.id %}" class="button_a">
+                <button class="button">UPDATE</button>
+            </a>
+
+            <a href="{% url 'blog_delete' post.id %}" class="button_a">
+                <button class="button">DELETE</button>
+            </a>
+        </div>
+
+
+        <p><span class="des">Description: </span> {{ object.description }} </p>
+        <p><span class="des">Create Date: </span> {{ object.create_date }}</p>
+        <p><span class="des">Modify Date: </span> {{ object.modify_date }}</p>
+        <div id="imgdiv">
+            <img src="{{ object.image.url }}" alt="{{ object.title }}" width="600" height="auto">
+        </div>
+
+        <div id="disqus_thread"></div>
+    </div>
+</body>
+</html>

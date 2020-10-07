@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+
+<form method="POST" action="."> {% csrf_token %}
+    <h1 id="title">LOG IN</h1>
+    <div id="content">
+        <div id="user">
+            <img src="https://drive.google.com/uc?id=1zJixSsgPwSEB3l-1UajZTL6s6nn-QWRJ" alt="user">
+        </div>
+        <div id="username">
+            <div class="label">
+                {{ form.username.label_tag }}
+            </div>
+            <div class="input">
+                {{ form.username }}
+            </div>
+        </div>
+
+        <div id="pw">
+            <div class="label">
+                {{ form.password.label_tag }}
+            </div>
+            <div class="input">
+                {{ form.password }}
+            </div>
+        </div>
+
+        <div id="buttondiv">
+            <button type="submit" id="button"> LOG IN </button>
+            <input type="hidden" value="{{ next }}">
+        </div>
+
+    </div>
+</form>
+
+{% endblock content %}

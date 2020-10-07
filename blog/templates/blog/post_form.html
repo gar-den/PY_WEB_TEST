@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Post Add</title>
+    <link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Grandstander&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Grandstander', cursive;
+        }
+        body {
+            width: 100%;
+
+            background-color: #D9E5FF;
+        }
+        h1 {
+            text-align: center;
+            margin: 50px 0px;
+
+            font-size: 64px;
+        }
+        #content {
+            width: 500px;
+            text-align: left;
+            border: 3px solid grey;
+            border-radius: 20px;
+
+            background-color: white;`
+
+            margin: 0px auto;
+
+            padding: 50px;
+        }
+        .label {
+            display: inline-block;
+            width: 150px;
+            font-weight: bold;
+            font-size: 16px;
+        }
+        .form {
+            display: inline-block;
+            width: 300px;
+            font-size: 12px;
+        }
+        #img {
+            margin: 30px 0px;
+        }
+        #button {
+            text-align: center;
+            margin-top: 50px;
+        }
+        button {
+            font-size: 16px;
+            padding: 10px;
+
+            font-weight: bold;
+            border-radius: 10px;
+
+            background-color: #373481;
+            color: #C8C882;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="title"> Post Add </h1>
+    <div id="content">
+        <form method="POST" action="" enctype="multipart/form-data"> {% csrf_token %}
+
+            <div>
+                <div class="label">{{ form.title.label_tag }}</div>
+                <div class="form">{{ form.title }}</div>
+            </div>
+            <div id="img">
+                <div class="label">{{ form.image.label_tag }}</div>
+                <div class="form">{{ form.image }}</div>
+            </div>
+            <div>
+                <div class="label">{{ form.description.label_tag }}</div>
+                <div class="form">{{ form.description }}</div>
+            </div>
+            <div id="button">
+                <button type="submit">CREATE/UPDATE</button>
+            </div>
+
+        </form>
+    </div>
+
+</body>
+</html>
+

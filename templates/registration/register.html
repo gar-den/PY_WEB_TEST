@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block content %}
+
+<form method="POST" action="."> {% csrf_token %}
+    <h1 id="title">REGISTER</h1>
+    <div id="content">
+        <div id="username">
+            <div class="label" style="color: black;">
+                {{ form.username.label_tag }}
+            </div>
+            <div class="input">
+                {{ form.username }}
+            </div>
+        </div>
+
+        <div id="pw1">
+            <div class="label" style="color: black;">
+                {{ form.password1.label_tag }}
+            </div>
+            <div class="input">
+                {{ form.password1 }}
+            </div>
+        </div>
+
+        <div id="pw2">
+            <div class="label" style="color: black;">
+                {{ form.password2.label_tag }}
+            </div>
+            <div class="input">
+                {{ form.password2 }}
+            </div>
+        </div>
+
+        <div id="buttondiv">
+            <button type="submit" id="button"> SIGN UP </button>
+        </div>
+
+    </div>
+</form>
+
+{% endblock content %}

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+
+    <meta charset="UTF-8">
+    <title>DJANGO BOOKMARK DETAIL VIEW</title>
+    <style>
+        * {
+            font-family: 'Nanum Gothic', sans-serif;
+            width: 100%;
+            text-align: center;
+        }
+        body {
+        }
+        span {
+            font-size: 64px;
+            color: firebrick;
+        }
+        ul {
+            display: inline-block;
+            list-style: none;
+
+            width: 800px;
+        }
+        li {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        .button {
+            color: white;
+            background-color: #555555;
+
+            padding: 10px;
+            width: 100px;
+
+            border-radius: 10px;
+
+            margin: 10px;
+        }
+        a {
+            text-decoration: none;
+        }
+        iframe {
+            width: 800px;
+            height: 500px;
+        }
+    </style>
+</head>
+<body>
+<div id="content">
+    <h1> {{ object.title }} </h1>
+
+    <a href="{% url 'bookmark_update' bookmark.id %}">
+        <button class="button">UPDATE</button>
+    </a>
+
+    <a href="{% url 'bookmark_delete' bookmark.id %}">
+        <button class="button">DELETE</button>
+    </a>
+
+    <br>
+
+    <ul>
+        <li> URL : {{ object.url }} </li>
+        <li> CREATE DATE : {{ object.create_date }} </li>
+        <li> MODIFY DATE : {{ object.modify_date }} </li>
+    </ul>
+    <br><br>
+
+    <iframe src= {{ object.url }} ></iframe>
+</div>
+</body>
+</html>

@@ -1,27 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>REGISTER DONE</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <style>
-        body {
-            width: 100%;
-            text-align: center;
-        }
-    </style>
-</head>
-<body>
-    <h1>Sign up Complete</h1>
-    <p> Redirecting in 3 seconds... </p>
+{% extends 'base.html' %}
 
-    <meta http-equiv="refresh" content="3; url={% url 'index' %}" />
-    <br>
-    <div class="spinner-border"></div>
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row md">
+        <div class="col-md-4"></div>
+        <div class="col-md-4 signedup">
+            <h1>Sign up Complete</h1>
+            <p> Redirecting in 3 seconds... </p>
+
+            <meta http-equiv="refresh" content="3; url={% url 'index' %}" />
+            <br>
+            <div class="spinner-border"></div>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
 
     <script>
         let cnt = 3;
@@ -36,7 +29,6 @@
 
         setInterval(upd_text,1000);
     </script>
+</div>
 
-</body>
-</html>
-
+{% endblock content %}

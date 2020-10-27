@@ -1,53 +1,258 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>NavBar Test</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Cousine&family=Peddana&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+    <title>Navigation Bar</title>
+
     <style>
-        .auth_menu {
-            font-size: 1.0vw;
+        * {
+            font-family: 'Cousine', monospace;
         }
-        .nav_menu {
-            font-size: 2.5vw;
+        .auth {
+            text-align: right;
+        }
+        .menu {
+            text-align: center;
+            font-size: 32px;
+        }
+        a {
+            text-decoration: none;
+            color: black;
+        }
+        a:hover {
+            text-decoration: none;
+            color: cadetblue;
+            background-color: aliceblue;
+        }
+
+
+        .loggedout, .signedup {
+            width: 100%;
+            text-align: center;
+        }
+
+        #pchdiv, #rdiv, #bformdiv, #bdetaildiv, #bdeletediv, #pformdiv, #pdetaildiv, #pdeletediv, #djangodiv, #plistdiv {
+            width: 100%;
+            padding: 50px;
+
+            border: 3px solid #4374D9;
+            border-radius: 30px;
+
+            text-align: center;
+        }
+        #title {
+            font-size: 64px;
+            text-align: center;
+
+            margin-top: 50px;
+            margin-bottom: 50px;
+
+            font-weight: bold;
+            color: #003399;
+
+            font-family: 'Gothic A1', sans-serif;
+        }
+        .label {
+            font-weight: bold;
+        }
+        .input {
+            margin: 10px 0px;
+        }
+        input {
+            width: 100%;
+        }
+        #buttondiv {
+            text-align: center;
+        }
+        #button {
+            width: 90%;
+            height: 40px;
+
+            border-radius: 10px;
+
+            background-color: #4374D9;
+            color: white;
+
+            margin-top: 20px;
+        }
+        .logindiv {
+            border: 3px solid #003399;
+            text-align: center;
+            width: 50%;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 50px 0px;
+        }
+        #userpic {
+            margin-bottom: 50px;
+        }
+        #userpic img {
+            width: 100px;
+        }
+
+
+        #blist {
+            text-align: center;
+        }
+        .spanred {
+            font-size: 64px;
+            color: firebrick;
+        }
+        #blistul {
+            display: inline-block;
+            list-style: none;
+            padding-left: 0px;
+        }
+        #blistli {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        #create:hover, #badetail:hover {
+            background-color: dimgray;
+            color: darkkhaki;
+        }
+        #create, #badetail {
+            text-decoration: none;
+
+            display: inline-block;
+            margin: auto 0px;
+            padding: 10px 20px;
+        }
+        #create {
+            border: 1px solid #008299;
+            color: #008299;
+        }
+        #dadetail {
+            color: dimgray;
+        }
+        #create:hover {
+            border: 3px solid #008299;
+            background-color: #FF7D64;
+        }
+
+
+        #biframe {
+            width: 100%;
+            height: 500px;
+        }
+        #bdetaildiv #title {
+            margin-top: 0px;
+            font-size: 32px;
+        }
+        ul {
+            list-style: none;
+            padding: 0px;
+            text-align: left;
+        }
+        li {
+            margin: 20px 0px;
+        }
+        #updatedelete {
+            text-align: center;
+        }
+        #deleteimg {
+            width: 100%;
+        }
+        #deleteimg img {
+            width: 50%;
+        }
+
+        .des {
+            font-weight: bold;
+        }
+
+
+        #title #small {
+            font-size: 16px;
+        }
+        #pimg {
+            width: 100%;
+            height: auto;
+            margin: auto;
+            display: block;
+            margin-bottom: 10px;
+        }
+        .post {
+            border: 3px solid #003399;
+            border-radius: 20px;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        #plistdiv p {
+            font-size: 12px;
+        }
+        .post .des {
+            font-weight: bold;
+            font-size: 12px;
+        }
+        .post #posttitle {
+            font-weight: bold;
+            font-size: 16px;
+            color: #003399;
         }
 
     </style>
+
   </head>
+
   <body>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+    <div class="container-fluid">
 
+        {% if user.is_active %}
 
-    <div class="container">
-        <br>
-        <div class="row auth_menu text-right">
+        <div class="row md auth">
             <div class="col-md-3"></div>
             <div class="col-md-3"></div>
-            <div class="col-md-3">Hello Admin</div>
-            <div class="col-md-3">Sign out / PW Change</div>
+            <div class="col-md-3">Hello, <strong>{{ user.get_username }}</strong></div>
+            <div class="col-md-3"><a href="{% url 'logout' %}">LOG OUT</a>/<a href="{% url 'password_change' %}">PW CHANGE</a></div>
         </div>
-        <br>
-        <div class="row nav_menu text-center">
-            <div class="col-md-3"><a href="{% url 'admin:index' %}">ADMIN</a></div>
+
+        {% else %}
+
+        <div class="row md auth">
+            <div class="col-md-3"></div>
+            <div class="col-md-3"></div>
+            <div class="col-md-3">Hello, <strong>Anonymous</strong></div>
+            <div class="col-md-3"><a href="{% url 'login' %}">SIGN IN</a>/<a href="{% url 'register' %}">SIGN UP</a></div>
+        </div>
+
+        {% endif %}
+
+        <div class="row md menu">
+            <div class="col-md-3"><a href="{% url 'index' %}">HOME</a></div>
             <div class="col-md-3"><a href="{% url 'django_des' %}">ABOUT</a></div>
             <div class="col-md-3"><a href="{% url 'bookmark_index' %}">BOOKMARK</a></div>
             <div class="col-md-3"><a href="{% url 'blog_index' %}">BLOG</a></div>
         </div>
-        <hr>
     </div>
 
-    {% block content %}
+    <hr>
 
-    {% endblock %}
+  {% block content %}
 
+  {% endblock %}
 
   </body>
 </html>
+

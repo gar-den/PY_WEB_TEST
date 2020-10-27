@@ -1,40 +1,15 @@
-<!doctype html>
-<html>
+{% extends 'base.html' %}
 
-<head>
-    <meta charset="utf-8">
-    <title>about django</title>
-    <link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@300&display=swap" rel="stylesheet">
-    <style>
-        * {
-            text-align: center;
-            font-family: 'Gothic A1', sans-serif;
-        }
-        body {
-            width: 800px;
-        }
-        #logo {
-            width: 200px;
-        }
-        img {
-            width: 500px;
-        }
-        .title {
-            text-align: left;
-            font-weight: bolder;
-            color: firebrick
-        }
-        #model, #view, #template {
-            color: dodgerblue;
-        }
-    </style>
-</head>
+{% load staticfiles %}
 
-<body>
-    <div id="content">
-        <br>
-        <div>
-            <img src="https://www.djangoproject.com/m/img/logos/django-logo-positive.png" id="logo">
+{% block content %}
+
+<div class="container">
+    <div class="row md">
+        <div class="col-md-2"></div>
+        <div class="col-md-8" id="djangodiv" style="text-align: center;">
+            <div>
+            <img src="https://www.djangoproject.com/m/img/logos/django-logo-positive.png" style="width: 70%">
             <hr>
             <div>
                 <p>
@@ -44,7 +19,7 @@
                 <p>
                     고도의 데이터베이스 기반 웹사이트를 작성하는 데 있어서 수고를 더는 것이 장고의 주된 목표이다. 장고는 콤포넌트의 재사용성(reusability)과 플러그인화 가능성(pluggability), 빠른 개발 등을 강조하고 있다. 또한, "DRY(Don't repeat yourself: 중복배제)" 원리를 따랐다. 설정 파일부터 데이터 모델에까지 파이썬 언어가 구석구석에 쓰였다.
                 </p>
-                <img src="https://www.sayonetech.com/media/upload/2019/04/05/python-django-company.jpg">
+                <img src="https://www.sayonetech.com/media/upload/2019/04/05/python-django-company.jpg" style="width: 50%;">
                 <p>
                     인스타그램[3], NASA[4], 빗버켓[5], Disqus[6] , 모질라[7]에서 장고를 사용하는 것으로 알려져있다.
                 </p>
@@ -52,12 +27,12 @@
         </div>
         <br>
         <div>
-            <h2 class="title" id="history">역사</h2>
+            <h2 style="text-align: left; font-weight: bold; color: dodgerblue;">역사</h2>
             <hr>
             <p>
                 장고는 2003년과 2004년에 로렌스 저널-월드(Lawrence Journal-World)라는 신문사의 인턴 웹 프로그래머였던 에이드리안 홀로바티(Adrian Holovaty)와 사이먼 윌리슨(Simon Willison)이 파이썬을 이용해 애플리케이션을 만들기 시작하면서 처음 개발되었다. 당시 로렌스 저널-월드의 웹사이트는 PHP 기반으로 쓰여졌었는데, 홀로바티와 윌리슨은 PHP는 규모가 큰 웹사이트에 적합하지 않다고 생각했고 이를 계기로 파이썬으로 웹 개발을 하기로 결심했다. 하지만 규모가 큰 웹 개발에 적합한 파이썬 도구가 없다는 것을 깨닫고 그들은 장고를 개발하게 되었다. 장고라는 이름은 홀로바티가 좋아하던 집시 재즈 기타리스트인 장고 라인하르트에서 따온 것이다.[8]
             </p>
-            <img src="https://image.slidesharecdn.com/jumpstartdjango2-091102211754-phpapp01/95/jumpstart-django-16-728.jpg?cb=1257197033">
+            <img src="https://image.slidesharecdn.com/jumpstartdjango2-091102211754-phpapp01/95/jumpstart-django-16-728.jpg?cb=1257197033" style="width: 50%;">
             <p>
                 사실 장고는 오직 로렌스 웹사이트를 구동하기 위함이었으나, 홀로바티와 윌리슨이 로렌스의 소유자인 더 월드 컴퍼니(The World Company)를 설득하여 오픈 소스로 2005년 7월에 BSD 사용 허가서로 공개하게 되었다.[9]
                 2008년 6월, 장고 소프트웨어 재단이 공식적으로 장고 프로젝트를 관리하게 된다는 공지가 장고 웹사이트에 올라왔다.
@@ -66,36 +41,44 @@
         </div>
         <br>
         <div>
-            <h2 class="title" id="feature">특징</h2>
+            <h2 style="text-align: left; font-weight: bold; color: dodgerblue;">특징</h2>
             <hr>
             <p>
                 장고는 웹 개발에서 번거로운 요소들을 새로 개발할 필요 없이 내장된 기능만을 이용해 빠른 개발을 할 수 있다는 장점이 있다.
             </p>
-            <h3 class="title" id="structure">구성</h3>
+            <h2 style="text-align: left; font-weight: bold; color: dodgerblue;">구성</h2>
+            <hr>
             <p>
                 장고는 파이썬으로 코딩한 모델을 관계형 데이터베이스로 구축해주는 모델(Model), HTTP 요청을 처리하는 웹 템플릿 시스템인 뷰(View), URL의 라우팅을 처리하는 URL 컨트롤러 (Controller) 로 구성된 MVC 디자인 패턴을 따른다.
 
                 하지만 전통적인 MVC 디자인 패턴에서 이야기하는 컨트롤러의 기능을 프레임워크를 자체에서 하기 때문에 모델(Model), 템플릿(Template), 뷰(View)로 분류해 MTV 프레임워크라고 보기도 한다.[11][12]
             </p>
-            <img src="https://image.slidesharecdn.com/fundamentosdj-150316184655-conversion-gate01/95/fundamentos-de-django-mini-curso-gratuito-5-638.jpg?cb=1426533050">
-            <h4 class="title" id="model">모델</h4>
+            <img src="https://image.slidesharecdn.com/fundamentosdj-150316184655-conversion-gate01/95/fundamentos-de-django-mini-curso-gratuito-5-638.jpg?cb=1426533050" style="width: 50%;">
+            <h2 style="text-align: left; font-weight: bold; color: dodgerblue;">모델</h2>
+            <hr>
             <p>
                 모델은 데이터에 관한 정보를 담는다. 데이터에 대한 접근, 검증, 작동과 데이터 사이의 관계를 정의하는데, 일반적으로 각각의 모델은 데이터베이스에서 테이블에 해당한다.
 
                 장고에서는 모델을 정의할 때 필드의 종류를 지정해줘야 하는데, 이것이 데이터베이스에게 컬럼 타입을 알려주고 HTML 폼으로 표시 될 때의 입력 타입도 내포하는 역할을 한다. 또한 장고의 폼 자동 생성 API 를 이용할 때 데이터 검증에 쓰이기도 한다.[13]
             </p>
-            <h4 class="title" id="view">뷰</h4>
+            <h2 style="text-align: left; font-weight: bold; color: dodgerblue;">뷰</h2>
+            <hr>
             <p>
                 어떤 데이터가 표시될 것인지를 정의한다. 뷰는 HTTP 응답(response)를 반환해야 하며 응답의 종류는 웹 페이지, 리디렉션, 문서 등의 다양한 형태가 가능하다.
 
                 장고에는 자주 사용되는 형태의 뷰를 패턴화하여 추상화 해둔 재사용 가능한 뷰들을 내장해 놓았는데, 이들을 제네릭 뷰(generic view) 라고 하며 원하는 제네릭 뷰를 상속한 클래스 뷰를 생성하여 사용할 수 있다.[14]
             </p>
-            <h4 class="title" id="template">템플릿</h4>
+            <h2 style="text-align: left; font-weight: bold; color: dodgerblue;">템플릿</h2>
+            <hr>
             <p>
                 데이터가 어떻게 표시되는 지를 정의한다. 템플릿은 사용자에게 실제로 보여지는 웹 페이지나 문서를 다룬다.
 
                 흔히 HTML 에 기반해서 템플릿을 만들며, HTML 에 동적인 요소를 추가하기 위해 파이썬의 일부 기능을 쓰게 도와주는 장고 템플릿 태그가 존재한다.[15]
             </p>
         </div>
+        </div>
+        <div class="col-md-2"></div>
     </div>
-</body></html>
+</div>
+
+{% endblock content %}

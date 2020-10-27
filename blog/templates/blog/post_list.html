@@ -1,108 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>POST LIST</title>
-    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic|Pattaya&display=swap" rel="stylesheet">
-    <style>
-        * {
-            font-family: 'Pattaya', sans-serif;
-            font-size: 12px;
-        }
 
-        #content {
-            width: 1200px;
-            height: auto;
+{% extends 'base.html' %}
 
-            text-align:center;
-        }
+{% load staticfiles %}
 
-        #title {
-            font-weight: bold;
-            font-size: 64px;
+{% block content %}
 
-            text-align: center;
-        }
-        #button {
-            width: 100px;
-            border: 3px solid grey;
-            border-radius: 10px;
-            text-align: center;
-            padding: 10px;
+<div class="container">
 
-            margin-bottom: 50px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        #button:hover {
-            border: 3px solid #6799FF;
-            background-color: #FAED7D;
-        }
-        #create{
-            text-decoration: none;
-            font-size: 16px;
-
-            width: 50px;
-
-            border: 3px solid #008299;
-            border-radius: 10px;
-            padding: 10px;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            margin-bottom: 50px;
-
-            color: #008299;
-        }
-
-        #title #small {
-            font-size: 16px;
-        }
-
-        img {
-            width: 280px;
-            height: 200px;
-            margin: auto;
-            display: block;
-        }
-
-        .post {
-            display: inline-block;
-            width: 280px;
-
-            border: 3px solid lightgrey;
-        }
-
-        .des {
-            color: firebrick;
-            font-weight: bold;
-            font-size: 20px;
-            text-align: center;
-        }
-    </style>
-
-    {% load staticfiles %}
-
-</head>
-<body>
     <h1 id="title">Blog <span id="small">made by Garden</span></h1>
 
-    <div id="content">
-        <a id="create" href="{% url 'blog_create' %}">CREATE</a>
+    {% if user.is_active %}
+
+    <div id="buttondiv" style="margin-top: -30px; margin-bottom: 20px; width: 50%; margin-left: auto; margin-right: auto;">
+        <a href="{% url 'blog_create' %}">
+            <button id="button">CREATE</button>
+        </a>
+    </div>
+
+    {% endif %}
+
+    <div class="row md" id="plistdiv">
 
         {% for post in object_list %}
-        <a href="{% url 'blog_detail' post.id %}">
+        <div class="col-md-4">
+            <a href="{% url 'blog_detail' post.id %}">
             <div class="post">
-
-                <p class="des"> {{ post.title }} </p>
-                <img src="{{ post.image.url }}" alt= "{{ post.title }}">
+                <p id="posttitle"> {{ post.title }} </p>
+                <img src="{{ post.image.url }}" alt= "{{ post.title }}" id="pimg">
                 <p> <span class="des">Description:</span> {{ post.description }} </p>
-                <p> <span class="des">Create Date:</span> {{ post.create_date }} </p>
-                <p> <span class="des">Modify Date:</span> {{ post.modify_date }} </p>
+                <p> <span class="des">Created:</span> {{ post.create_date }} </p>
+                <p> <span class="des">Modified:</span> {{ post.modify_date }} </p>
            </div>
         </a>
-
+        </div>
         {% endfor %}
     </div>
-</body>
-</html>
+</div>
+
+{% endblock content%}

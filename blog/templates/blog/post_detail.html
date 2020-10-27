@@ -1,105 +1,70 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic|Pattaya&display=swap" rel="stylesheet">
-    <title>BLOG DETAIL PAGE</title>
-    <script>
-        (
-            function() { // DON'T EDIT BELOW THIS LINE
-                var d = document, s = d.createElement('script');
-                s.src = 'https://garden-lee.disqus.com/embed.js';
-                s.setAttribute('data-timestamp', +new Date());
-                (d.head || d.body).appendChild(s);
-            }
-        )
-        ();
-    </script>
-    <style>
-        * {
-            font-family: 'Pattaya', sans-serif;
-            align-content: center;
-        }
 
-        #title {
-            font-size: 64px;
-            font-weight: bold;
+{% extends 'base.html' %}
 
-            text-align: center;
-        }
+{% load staticfiles %}
 
-        #content {
-            width: 800px;
+{% block content %}
 
-            border: 3px solid #BDBDBD;
+<div class="container-fluid">
+    <div class="row md">
+        <div class="col-md-2"></div>
+        <div class="col-md-8"  id="pdetaildiv">
+            <h1 id="title"> {{ object.title }} </h1>
 
-            margin-left: auto;
-            margin-right: auto;
+            {% if user.is_active %}
 
-            padding: 20px;
-        }
-        #b {
-            width: 500px;
-            margin: 0px auto;
-        }
-        .button_a {
-            display: inline-block;
-            width: 200px;
-            margin: 20px;
-        }
+            <div class="row md" id="updatedelete">
+                <div class="col-md-3"></div>
+                <div class="col-md-3">
+                    <div class="buttondiv">
+                        <a href="{% url 'blog_update' post.id %}">
+                            <button class="button">UPDATE</button>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="buttondiv">
+                        <a href="{% url 'blog_delete' post.id %}">
+                            <button class="button">DELETE</button>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-3"></div>
+            </div>
 
-        .button {
-            color: white;
-            background-color: #555555;
+            {% endif %}
 
-            padding: 10px;
-            width: 100%;
+            <br><br>
 
-            font-size: 16px;
+            <ul>
+                <li> <span class="des">Description: </span> {{ object.description }} </li>
+                <li> <span class="des">Create Date: </span> {{ object.create_date }} </li>
+                <li> <span class="des">Modify Date: </span> {{ object.modify_date }} </li>
+            </ul>
 
-            border-radius: 10px;
-        }
-        #imgdiv {
-            width: 800px;
-            text-align: center;
+            <br><br>
 
-            margin: 20px;
-        }
+            <div id="imgdiv">
+                <img src="{{ object.image.url }}" alt="{{ object.title }}" width="100%" height="auto">
+            </div>
 
-        img {
-            width: 600px;
-            height: auto;
-        }
+            <div id="disqus_thread"></div>
 
-        .des {
-            color: firebrick;
-            font-weight: bold;
-        }
-    </style>
-</head>
-<body>
-    <div id="content">
-        <h1 id="title">{{ object.title }}</h1>
-
-        <div id="b">
-            <a href="{% url 'blog_update' post.id %}" class="button_a">
-                <button class="button">UPDATE</button>
-            </a>
-
-            <a href="{% url 'blog_delete' post.id %}" class="button_a">
-                <button class="button">DELETE</button>
-            </a>
         </div>
-
-
-        <p><span class="des">Description: </span> {{ object.description }} </p>
-        <p><span class="des">Create Date: </span> {{ object.create_date }}</p>
-        <p><span class="des">Modify Date: </span> {{ object.modify_date }}</p>
-        <div id="imgdiv">
-            <img src="{{ object.image.url }}" alt="{{ object.title }}" width="600" height="auto">
-        </div>
-
-        <div id="disqus_thread"></div>
+        <div class="col-md-2"></div>
     </div>
-</body>
-</html>
+</div>
+
+<script>
+    (
+        function() { // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
+            s.src = 'https://garden-lee.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        }
+    )
+    ();
+</script>
+
+{% endblock content %}

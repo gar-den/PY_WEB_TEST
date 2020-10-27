@@ -1,54 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Bookmark Delete</title>
-    <link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@300&display=swap" rel="stylesheet">
-    <style>
-        * {
-            font-family: 'Gothic A1', sans-serif;
 
-            text-align: center;
-        }
-        body {
-            width: 400px;
+{% extends 'base.html' %}
 
-            border: 3px solid darkgrey;
-            margin: 50px auto;
-        }
-        .content {
-            width: 100%;
-        }
-        #delete {
-            width: 100px;
-            margin: 50px auto;
-        }
-        img {
-            width: 100%;
-        }
-        button {
-            width: 300px;
-            font-size: 16px;
-            border-radius: 15px;
-            background-color: #5586EB;
-            color: white;
+{% load staticfiles %}
 
-            margin-bottom: 50px;
-        }
-    </style>
-</head>
-<body>
-    <div class="content">
-        <form method="POST" action=""> {% csrf_token %}
-            <div id="delete">
-                <img src="https://drive.google.com/uc?id=10bYKDLnKfEnnKN6WO7hSMeuXKd4G73pG" alt="delete">
-            </div>
-            <p id="title"> Are you sure you want to delete? </p>
+{% block content %}
 
-            <button type="submit">YES</button>
-    </form>
+<br><br><br>
+
+<div class="container-fluid">
+    <div class="row md">
+        <div class="col-md-4"></div>
+        <div class="col-md-4" id="bdeletediv">
+            <form method="POST" action=""> {% csrf_token %}
+                <svg width="10em" height="10em" viewBox="0 0 16 16" class="bi bi-trash-fill" fill="#4374D9" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"/>
+</svg>
+
+                <br><br>
+
+                <p> Are you sure you want to delete? </p>
+
+                <button type="submit" style=" width: 90%; border-radius: 10px; background-color: #4374D9; color: white;">YES</button>
+            </form>
+        </div>
+        <div class="col-md-4"></div>
     </div>
+</div>
 
-</body>
-</html>
-
+{% endblock content %}

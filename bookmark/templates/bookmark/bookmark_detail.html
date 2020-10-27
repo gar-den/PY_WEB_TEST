@@ -1,74 +1,51 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+{% extends 'base.html' %}
 
-    <meta charset="UTF-8">
-    <title>DJANGO BOOKMARK DETAIL VIEW</title>
-    <style>
-        * {
-            font-family: 'Nanum Gothic', sans-serif;
-            width: 100%;
-            text-align: center;
-        }
-        body {
-        }
-        span {
-            font-size: 64px;
-            color: firebrick;
-        }
-        ul {
-            display: inline-block;
-            list-style: none;
+{% load staticfiles %}
 
-            width: 800px;
-        }
-        li {
-            margin-bottom: 20px;
-            text-align: left;
-        }
-        .button {
-            color: white;
-            background-color: #555555;
+{% block content %}
 
-            padding: 10px;
-            width: 100px;
+<div class="container-fluid">
+    <div class="row md">
+        <div class="col-md-2"></div>
+        <div class="col-md-8"  id="bdetaildiv">
+            <h1 id="title"> {{ object.title }} </h1>
 
-            border-radius: 10px;
+            {% if user.is_active %}
 
-            margin: 10px;
-        }
-        a {
-            text-decoration: none;
-        }
-        iframe {
-            width: 800px;
-            height: 500px;
-        }
-    </style>
-</head>
-<body>
-<div id="content">
-    <h1> {{ object.title }} </h1>
+            <div class="row md" id="updatedelete">
+                <div class="col-md-3"></div>
+                <div class="col-md-3">
+                    <div class="buttondiv">
+                        <a href="{% url 'bookmark_update' bookmark.id %}">
+                            <button class="button">UPDATE</button>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="buttondiv">
+                        <a href="{% url 'bookmark_delete' bookmark.id %}">
+                            <button class="button">DELETE</button>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-3"></div>
+            </div>
 
-    <a href="{% url 'bookmark_update' bookmark.id %}">
-        <button class="button">UPDATE</button>
-    </a>
+            {% endif %}
 
-    <a href="{% url 'bookmark_delete' bookmark.id %}">
-        <button class="button">DELETE</button>
-    </a>
+            <ul>
+                <li> URL : {{ object.url }} </li>
+                <li> CREATE DATE : {{ object.create_date }} </li>
+                <li> MODIFY DATE : {{ object.modify_date }} </li>
+            </ul>
 
-    <br>
+            <br><br>
 
-    <ul>
-        <li> URL : {{ object.url }} </li>
-        <li> CREATE DATE : {{ object.create_date }} </li>
-        <li> MODIFY DATE : {{ object.modify_date }} </li>
-    </ul>
-    <br><br>
+            <iframe src= {{ object.url }} id="biframe"></iframe>
 
-    <iframe src= {{ object.url }} ></iframe>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
 </div>
-</body>
-</html>
+
+{% endblock content %}

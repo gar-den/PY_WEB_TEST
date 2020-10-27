@@ -4,41 +4,46 @@
 
 {% block content %}
 
-<form method="POST" action="."> {% csrf_token %}
+<div class="container-fluid">
     <h1 id="title">REGISTER</h1>
-    <div id="content">
-        <div id="username">
-            <div class="label" style="color: black;">
-                {{ form.username.label_tag }}
-            </div>
-            <div class="input">
-                {{ form.username }}
-            </div>
-        </div>
 
-        <div id="pw1">
-            <div class="label" style="color: black;">
-                {{ form.password1.label_tag }}
-            </div>
-            <div class="input">
-                {{ form.password1 }}
-            </div>
-        </div>
+    <div class="row md">
+        <div class="col-md-4"></div>
+        <div class="col-md-4" id="rdiv">
+            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-heart-half" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" d="M8 1.314C3.562-3.248-7.534 4.735 8 15V1.314z"/>
+  <path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+</svg>
+            <form method="POST" action="."> {% csrf_token %}
+                <div class="row md">
+                    <div class="col-md-6 label">USERNAME <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-cash-stack" fill="#4374D9" xmlns="http://www.w3.org/2000/svg">
+  <path d="M14 3H1a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1h-1z"/>
+  <path fill-rule="evenodd" d="M15 5H1v8h14V5zM1 4a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1H1z"/>
+  <path d="M13 5a2 2 0 0 0 2 2V5h-2zM3 5a2 2 0 0 1-2 2V5h2zm10 8a2 2 0 0 1 2-2v2h-2zM3 13a2 2 0 0 0-2-2v2h2zm7-4a2 2 0 1 1-4 0 2 2 0 0 1 4 0z"/>
+</svg> </div>
+                    <div class="col-md-6 input">{{ form.username }}</div>
+                </div>
+                <div class="row md">
+                    <div class="col-md-6 label">PASSWORD1 <svg width="1.5em" height="1.6em" viewBox="0 0 16 17" class="bi bi-cup-straw" fill="#4374D9" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" d="M13.964 1.18a.5.5 0 0 1-.278.65l-2.255.902-.462 2.08c.375.096.714.216.971.368.228.135.56.396.56.82 0 .046-.004.09-.011.132l-.955 9.068a1.28 1.28 0 0 1-.524.93c-.488.34-1.494.87-3.01.87-1.516 0-2.522-.53-3.01-.87a1.28 1.28 0 0 1-.524-.93L3.51 6.132A.78.78 0 0 1 3.5 6c0-.424.332-.685.56-.82.262-.154.607-.276.99-.372C5.824 4.614 6.867 4.5 8 4.5c.712 0 1.389.045 1.985.127l.527-2.37a.5.5 0 0 1 .302-.355l2.5-1a.5.5 0 0 1 .65.279zM9.768 5.608A13.991 13.991 0 0 0 8 5.5c-1.076 0-2.033.11-2.707.278A3.284 3.284 0 0 0 4.645 6c.146.073.362.15.648.222C5.967 6.39 6.924 6.5 8 6.5c.571 0 1.109-.03 1.588-.085l.18-.808zm.292 1.756a5.513 5.513 0 0 0 1.325-.297l-.845 8.03c-.013.12-.06.185-.102.214-.357.249-1.167.69-2.438.69-1.27 0-2.08-.441-2.438-.69-.041-.029-.09-.094-.102-.214l-.845-8.03c.137.046.283.088.435.126.774.194 1.817.308 2.95.308.742 0 1.445-.049 2.06-.137zm-5.593-1.48s.003.002.005.006l-.005-.006zm7.066 0l-.005.006a.026.026 0 0 1 .005-.006zM11.354 6a3.282 3.282 0 0 1-.703.235l.1-.446c.264.069.464.142.603.211z"/>
+</svg> </div>
+                    <div class="col-md-6 input">{{ form.password1 }}</div>
+                </div>
+                <div class="row md">
+                    <div class="col-md-6 label">PASSWORD2 <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-egg-fried" fill="#4374D9" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" d="M13.665 6.113a1 1 0 0 1-.667-.977L13 5a4 4 0 0 0-6.483-3.136 1 1 0 0 1-.8.2 4 4 0 0 0-3.693 6.61 1 1 0 0 1 .2 1 4 4 0 0 0 6.67 4.087 1 1 0 0 1 1.262-.152 2.5 2.5 0 0 0 3.715-2.905 1 1 0 0 1 .341-1.113 2.001 2.001 0 0 0-.547-3.478zM14 5c0 .057 0 .113-.003.17a3.001 3.001 0 0 1 .822 5.216 3.5 3.5 0 0 1-5.201 4.065 5 5 0 0 1-8.336-5.109A5 5 0 0 1 5.896 1.08 5 5 0 0 1 14 5z"/>
+  <circle cx="8" cy="8" r="3"/>
+</svg> </div>
+                    <div class="col-md-6 input">{{ form.password2 }}</div>
+                </div>
 
-        <div id="pw2">
-            <div class="label" style="color: black;">
-                {{ form.password2.label_tag }}
-            </div>
-            <div class="input">
-                {{ form.password2 }}
-            </div>
+                <div id="buttondiv">
+                    <button type="submit" id="button"> SIGN UP </button>
+                </div>
+            </form>
         </div>
-
-        <div id="buttondiv">
-            <button type="submit" id="button"> SIGN UP </button>
-        </div>
-
+        <div class="col-md-4"></div>
     </div>
-</form>
+</div>
 
 {% endblock content %}
